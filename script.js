@@ -8,7 +8,6 @@ function onYouTubeIframeAPIReady() {
         videoId: 'WECKJ1VzCVA', // Replace with your YouTube video ID
         playerVars: {
             'autoplay': 1,
-            'mute': 1,
             'start': 23, // Start from 23 seconds
             'loop': 1,
             'playlist': 'WECKJ1VzCVA' // Add the video ID here for looping
