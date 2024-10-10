@@ -91,3 +91,13 @@ h1 {
     font-size: 1.3em;
     color: #dddddd; /* Softer white for a gentler touch */
 }
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none; /* Prevents interaction with the video */
+}
