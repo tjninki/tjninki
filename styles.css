@@ -101,3 +101,27 @@ h1 {
     z-index: -1;
     pointer-events: none; /* Prevents interaction with the video */
 }
+/* Video full background */
+#player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+/* Secret letter is hidden initially */
+#secret-letter {
+    display: none;
+    font-size: 2em;
+    color: white;
+}
+
+/* When the secret letter is visible */
+#secret-letter.show {
+    display: block;
+}
+
+/* Other existing styles you already have for .container, .buttons, etc. */
