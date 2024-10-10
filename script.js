@@ -1,14 +1,17 @@
 var player;
 
+// YouTube API will call this function when the API is ready
 function onYouTubeIframeAPIReady() {
-    player = new onYouTubeIframeAPIReady.Player('player', {
-        videoId: 'WECKJ1VzCVA', // Your video ID here
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'WECKJ1VzCVA', // Replace with your YouTube video ID
         playerVars: {
             'autoplay': 1,
             'mute': 1,
-            'start': 23, // Start at 23 seconds
+            'start': 23, // Start from 23 seconds
             'loop': 1,
-            'playlist': 'WECKJ1VzCVA'
+            'playlist': 'WECKJ1VzCVA' // Add the video ID here for looping
         },
         events: {
             'onReady': onPlayerReady,
@@ -17,18 +20,21 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
+// Play the video when ready
 function onPlayerReady(event) {
-    event.target.playVideo(); // Start the video playback
+    event.target.playVideo();
 }
 
+// Check video state and pause at 1:12 (72 seconds)
 function onPlayerStateChange(event) {
-    if (event.data === onYouTubeIframeAPIReady.PlayerState.PLAYING) {
+    if (event.data === YT.PlayerState.PLAYING) {
         var checkTime = setInterval(function() {
             var currentTime = player.getCurrentTime();
-            if (currentTime >= 72) { // Stop video at 72 seconds (1:12)
+            if (currentTime >= 72) { // Stop at 1:12 (72 seconds)
                 player.pauseVideo();
-                clearInterval(checkTime); // Stop checking once paused
-                document.getElementById('secret-letter').classList.add('show'); // Show the secret letter
+                clearInterval(checkTime);
+                // Show the secret letter
+                document.getElementById('secret-letter').style.display = 'block';
             }
         }, 1000);
     }
